@@ -20,9 +20,9 @@ abstract class TinyNode
 		$this->childNodes = new TinyNodesList();
 	}
 
-	public function appendChild($newnode)
+	public function appendChild($newNode)
 	{
-		array_push($this->childNodes->nodes, $newnode);
+		$this->childNodes->addNode($newNode);
 	}
 
 	public function insertBefore(TinyNode $newnode, TinyNode $refnode) 

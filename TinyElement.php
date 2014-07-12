@@ -8,6 +8,18 @@ class TinyElement extends TinyNode
 
 	public function __construct(TinyDocument $tagName)
 	{
-		$this->$tagName = array ("<".$tagName.">", "</".$tagName.">");
+		$singleTags = array(
+							'area', 'base', 'basefont', 'bgsound', 'br', 'col', 'command',
+							'embed', 'hr', 'img', 'input', 'isindex', 'keygen', 'link', 
+							'meta', 'param', 'source', 'track', 'wbr'
+							)
+
+		foreach ($singleTags as $singleTag) {
+			if ($singleTag == $tagName) {
+				$this->tagName = "<".$tagName.">";
+			} else {
+				$this->tagName = array ("<".$tagName.">", "</".$tagName.">");
+			}
+		}
 	}
 }

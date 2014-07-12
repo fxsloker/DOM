@@ -14,10 +14,6 @@ class TinyDocument extends TinyNode
 	{
 		$newnode = new TinyElement($tagName);
 
-		if (!$this->documentElement) {
-			$this->documentElement = $newnode;
-		}
-
 		return $newnode;
 	}
 
