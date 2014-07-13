@@ -23,11 +23,6 @@ abstract class TinyNode
 	public $ownerDocument;
 	public $textContent;
 
-	public function __construct()
-	{
-		$this->childNodes = new TinyNodesList();
-	}
-
 	public function appendChild($newNode)
 	{
 		$this->childNodes->addNode($newNode);

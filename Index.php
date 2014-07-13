@@ -10,4 +10,7 @@ $doc = new TinyDocument();
 $root = $doc->createElement('html');
 $doc->appendChild($root);
 
+$head = $doc->createElement('head');
+$root->appendChild($head);
+
 var_dump($doc->documentElement);

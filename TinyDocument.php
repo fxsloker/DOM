@@ -14,6 +14,8 @@ class TinyDocument extends TinyNode
 	{
 		$this->nodeName = "#document";
 		$this->nodeType = self::XML_DOCUMENT_NODE;
+
+		$this->childNodes = new TinyNodesList();
 	}
 
 	public function createElement($tagName)

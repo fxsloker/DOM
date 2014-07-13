@@ -25,5 +25,7 @@ class TinyElement extends TinyNode
 		$this->nodeName = $tagName;
 
 		$this->nodeType = self::XML_ELEMENT_NODE;
+
+		$this->ownerDocument = new TinyDocument;
 	}
 }
