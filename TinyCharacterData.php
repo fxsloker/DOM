@@ -1,30 +1,32 @@
 <?php
+require_once 'TinyNode.php';
+
  abstract class TinyCharacterData extends TinyNode
 {
 	public $data;
 	public $length;
 
-	public function appendData
+	public function appendData()
 	{
 
 	}
 
-	public function deleteData
+	public function deleteData()
 	{
 
 	}
 
-	public function insertData
+	public function insertData()
 	{
 
 	}
 
-	public function replaceData
+	public function replaceData()
 	{
 
 	}
 
-	public function substringData
+	public function substringData()
 	{
 
 	}

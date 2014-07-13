@@ -1,7 +1,9 @@
 <?php
+require_once 'TinyCharacterData.php';
+
 class TinyText extends TinyCharacterData
 {
-	$wholeText;
+	public $wholeText;
 
 	public function isWhitespaceInElementContent()
 	{

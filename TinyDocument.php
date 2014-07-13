@@ -10,11 +10,17 @@ class TinyDocument extends TinyNode
 	public $documentElement = null; 
 	public $encoding;
 
+	public function __construct()
+	{
+		$this->nodeName = "#document";
+		$this->nodeType = self::XML_DOCUMENT_NODE;
+	}
+
 	public function createElement($tagName)
 	{
-		$newnode = new TinyElement($tagName);
+		$newNode = new TinyElement($tagName);
 
-		return $newnode;
+		return $newNode;
 	}
 
 	public function createComment()

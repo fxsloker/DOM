@@ -6,13 +6,13 @@ class TinyElement extends TinyNode
 {
 	public $tagName;
 
-	public function __construct(TinyDocument $tagName)
+	public function __construct($tagName)
 	{
 		$singleTags = array(
 							'area', 'base', 'basefont', 'bgsound', 'br', 'col', 'command',
 							'embed', 'hr', 'img', 'input', 'isindex', 'keygen', 'link', 
 							'meta', 'param', 'source', 'track', 'wbr'
-							)
+							);
 
 		foreach ($singleTags as $singleTag) {
 			if ($singleTag == $tagName) {
@@ -21,5 +21,9 @@ class TinyElement extends TinyNode
 				$this->tagName = array ("<".$tagName.">", "</".$tagName.">");
 			}
 		}
+
+		$this->nodeName = $tagName;
+
+		$this->nodeType = self::XML_ELEMENT_NODE;
 	}
 }
