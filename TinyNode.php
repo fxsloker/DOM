@@ -25,19 +25,19 @@ abstract class TinyNode
 
 	public function appendChild($newNode)
 	{	
-		//var_dump($newNode);
-		//var_dump($this->childNodes);
-		//var_dump($this);
 		$this->childNodes->addNode($newNode);
 
-		if (get_class($this) == TinyDocument) {
-			$this->documentElement = $newNode;
+		$this->firstChild = $this->childNodes->getNode(0);
+
+		if ($this->childNodes->length > 1) {
+			$this->lastChild = $this->childNodes->getNode($this->childNodes->length - 1);
+		} else {
+			$this->lastChild = $this->firstChild;
 		}
-		//var_dump($this->documentElement);
 	}
 
-	public function insertBefore(TinyNode $newnode, TinyNode $refnode) 
+	public function insertBefore($newnode, $refnode) 
 	{
-
+		
 	}
 }

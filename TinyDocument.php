@@ -18,6 +18,21 @@ class TinyDocument extends TinyNode
 		$this->childNodes = new TinyNodesList();
 	}
 
+	public function appendChild($newNode)
+	{
+		$this->childNodes->addNode($newNode);
+
+		$this->documentElement = $newNode;
+
+		$this->firstChild = $this->childNodes->getNode(0);
+
+		if ($this->childNodes->length > 1) {
+			$this->lastChild = $this->childNodes->getNode($this->childNodes->length - 1);
+		} else {
+			$this->lastChild = $this->firstChild;
+		}
+	}
+
 	public function createElement($tagName)
 	{
 		$newNode = new TinyElement($tagName);

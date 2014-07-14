@@ -4,6 +4,7 @@ require_once 'TinyDocument.php';
 class TinyNodesList
 {
 	public $nodes = array();
+	public $length = 0;
 
 	public function getNode($index)
 	{
@@ -14,5 +15,7 @@ class TinyNodesList
 	public function addNode($newNode)
 	{
 		array_push($this->nodes, $newNode);
+
+		$this->length += 1;
 	}
 }
