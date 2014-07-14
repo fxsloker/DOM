@@ -27,5 +27,7 @@ class TinyElement extends TinyNode
 		$this->nodeType = self::XML_ELEMENT_NODE;
 
 		$this->ownerDocument = new TinyDocument;
+
+		$this->childNodes = new TinyNodesList();
 	}
 }

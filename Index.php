@@ -13,4 +13,4 @@ $doc->appendChild($root);
 $head = $doc->createElement('head');
 $root->appendChild($head);
 
-var_dump($doc->documentElement);
+var_dump($root);

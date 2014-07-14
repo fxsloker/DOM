@@ -24,12 +24,16 @@ abstract class TinyNode
 	public $textContent;
 
 	public function appendChild($newNode)
-	{
+	{	
+		//var_dump($newNode);
+		//var_dump($this->childNodes);
+		//var_dump($this);
 		$this->childNodes->addNode($newNode);
 
-		if (!$this->documentElement) {
+		if (get_class($this) == TinyDocument) {
 			$this->documentElement = $newNode;
 		}
+		//var_dump($this->documentElement);
 	}
 
 	public function insertBefore(TinyNode $newnode, TinyNode $refnode) 
