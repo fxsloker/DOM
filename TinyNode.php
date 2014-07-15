@@ -50,15 +50,11 @@ abstract class TinyNode
 
 		$index = array_search($refNode, $nodes);
 
-		var_dump($this->childNodes->nodes);
-
 		if ($index != 0) {
-			array_splice($this->childNodes->nodes, $index - 1, 0, $newNode);
+			array_splice($this->childNodes->nodes, $index, 0, $newNode);
 		} else {
 			array_unshift($this->childNodes->nodes, $newNode);
 		}
-
-		var_dump($this->childNodes->nodes);
 
 		if ($this->childNodes->length > 1) {
 			$this->lastChild = $this->childNodes->getNode($this->childNodes->length - 1);

@@ -28,5 +28,4 @@ $body->appendChild($em);
 $img = $doc->createElement('img');
 $body->insertBefore($img, $em);
 
-var_dump($img->previousSibling);
-var_dump($img->nextSibling);
+var_dump($body->childNodes->nodes);
