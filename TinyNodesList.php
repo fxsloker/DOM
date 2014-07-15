@@ -18,4 +18,9 @@ class TinyNodesList
 
 		$this->length += 1;
 	}
+
+	public function getAllNodes()
+	{
+		return $this->nodes;
+	}
 }

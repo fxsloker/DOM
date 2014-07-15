@@ -16,4 +16,17 @@ $root->appendChild($head);
 $body = $doc->createElement('body');
 $root->appendChild($body);
 
-var_dump($doc);
+$div = $doc->createElement('div');
+$body->appendChild($div);
+
+$p = $doc->createElement('p');
+$body->appendChild($p);
+
+$em = $doc->createElement('em');
+$body->appendChild($em);
+
+$img = $doc->createElement('img');
+$body->insertBefore($img, $em);
+
+var_dump($img->previousSibling);
+var_dump($img->nextSibling);
