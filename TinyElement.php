@@ -8,7 +8,7 @@ class TinyElement extends TinyNode
 
 	public function __construct($tagName)
 	{
-		$singleTags = array(
+		/*$singleTags = array(
 							'area', 'base', 'basefont', 'bgsound', 'br', 'col', 'command',
 							'embed', 'hr', 'img', 'input', 'isindex', 'keygen', 'link', 
 							'meta', 'param', 'source', 'track', 'wbr'
@@ -20,8 +20,10 @@ class TinyElement extends TinyNode
 			} else {
 				$this->tagName = array ("<".$tagName.">", "</".$tagName.">");
 			}
-		}
+		}*/
 
+		$this->tagName = $tagName;
+		
 		$this->nodeName = $tagName;
 
 		$this->nodeType = self::XML_ELEMENT_NODE;

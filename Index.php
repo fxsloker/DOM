@@ -10,22 +10,13 @@ $doc = new TinyDocument();
 $root = $doc->createElement('html');
 $doc->appendChild($root);
 
-$head = $doc->createElement('head');
-$root->appendChild($head);
-
 $body = $doc->createElement('body');
-$root->appendChild($body);
+$doc->appendChild($body);
 
 $div = $doc->createElement('div');
 $body->appendChild($div);
 
 $p = $doc->createElement('p');
-$body->appendChild($p);
+$body->insertBefore($p, $div);
 
-$em = $doc->createElement('em');
-$body->appendChild($em);
-
-$img = $doc->createElement('img');
-$body->insertBefore($img, $em);
-
-var_dump($body->childNodes->nodes);
+var_dump($body->childNodes->getNodesList());

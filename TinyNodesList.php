@@ -3,24 +3,36 @@ require_once 'TinyDocument.php';
 
 class TinyNodesList
 {
-	public $nodes = array();
-	public $length = 0;
+	private $nodesList = array();
+	private $length = 0;
 
-	public function getNode($index)
+	public function getNodeByIndex($index)
 	{
-		$nodes = $this->nodes;
+		$nodes = $this->nodesList;
 		return $nodes[$index];
 	}
 
 	public function addNode($newNode)
 	{
-		array_push($this->nodes, $newNode);
+		array_push($this->nodesList, $newNode);
 
 		$this->length += 1;
 	}
 
-	public function getAllNodes()
+	public function getNodesList()
 	{
-		return $this->nodes;
+		return $this->nodesList;
+	}
+
+	public function getLength()
+	{
+		return $this->length - 1;
+	}
+
+	public function setNodesList($nodesList)
+	{
+		$this->nodesList = $nodesList;
+
+		$this->length += 1;
 	}
 }

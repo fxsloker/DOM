@@ -28,38 +28,52 @@ abstract class TinyNode
 	{	
 		$this->childNodes->addNode($newNode);
 
-		$length = $this->childNodes->length;
+		$this->setFirstLastChilds();
 
-		if ($length > 1) {
-			$newNode->previousSibling = $this->childNodes->getNode($length - 2);
-			$this->childNodes->getNode($length - 2)->nextSibling = $newNode;
-		} 
-
-		$this->firstChild = $this->childNodes->getNode(0);
-
-		if ($length > 1) {
-			$this->lastChild = $this->childNodes->getNode($length - 1);
-		} else {
-			$this->lastChild = $this->firstChild;
-		}
+		$this->setSiblings();
 	}
 
 	public function insertBefore($newNode, $refNode) 
 	{
-		$nodes = $this->childNodes->getAllNodes();
+		$nodesList = $this->childNodes->getNodesList();
 
-		$index = array_search($refNode, $nodes);
+		$nodesListCopy = $nodesList;
 
-		if ($index != 0) {
-			array_splice($this->childNodes->nodes, $index, 0, $newNode);
-		} else {
-			array_unshift($this->childNodes->nodes, $newNode);
+		$index = array_search($refNode, $nodesList);
+
+		for ($i = 0; $i <= $this->childNodes->getLength(); $i++) {
+			if ($i == $index) {
+				$nodesListCopy[$i] = $newNode;
+				$nodesListCopy[$i + 1] = $refNode;
+				$i++;
+			} else {
+				$nodesListCopy[] = $nodesList[$i];
+			}
 		}
 
-		if ($this->childNodes->length > 1) {
-			$this->lastChild = $this->childNodes->getNode($this->childNodes->length - 1);
-		} else {
-			$this->lastChild = $this->firstChild;
+		$this->childNodes->setNodesList($nodesListCopy);
+
+		$this->setFirstLastChilds();
+		$this->setSiblings();
+	}
+
+	protected function setFirstLastChilds()
+	{
+		$this->firstChild = $this->childNodes->getNodeByIndex(0);
+
+		$this->lastChild = $this->childNodes->getNodeByIndex($this->childNodes->getLength());
+	}
+
+	protected function setSiblings()
+	{
+		for ($i = 0; $i <= $this->childNodes->getLength(); $i++) {
+			if ($i != $this->childNodes->getLength()) {
+				$this->childNodes->getNodeByIndex($i)->nextSibling = $this->childNodes->getNodeByIndex($i + 1);
+			}
+
+			if ($i != 0) {
+				$this->childNodes->getNodeByIndex($i)->previousSibling = $this->childNodes->getNodeByIndex($i - 1);
+			}
 		}
 	}
 }
